@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cart-slice";
 import { useCartDispatch } from "../store/hooks";
 
@@ -17,10 +16,9 @@ export default function Product({
   price,
   description,
 }: ProductProps) {
+  const dispatch = useCartDispatch();
   function handleAddToCart() {
-    const dispatch = useCartDispatch();
-
-    addToCart({ id, title, price });
+    dispatch(addToCart({ id, title, price }));
   }
 
   return (
